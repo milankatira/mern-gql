@@ -39,7 +39,7 @@ const Record = ({ record }) => {
 };
 
 const DeleteRecord = ({ id }) => {
-  const [deleteRecord, { data, loading, error }] = useMutation(DELETE_RECORD, {
+  const [deleteRecord, { loading, error }] = useMutation(DELETE_RECORD, {
     variables: { id },
     refetchQueries: [GET_RECORDS, "GetRecords"],
   });
@@ -65,7 +65,6 @@ export default function RecordList() {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error : {error.message}</p>;
 
-  // This following section will display the table with the records of individuals.
   return (
     <div>
       <h3>Record List</h3>
